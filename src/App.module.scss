@@ -1,0 +1,20 @@
+
+@import './stylesheet/_variable.scss';
+
+.App{
+  display: flex;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $blueBG;
+    min-height: 100vh;
+    width: 100%;
+    
+    @media only screen and (min-width: 768px) {
+      width: 772px;
+    }
+  }
+}
