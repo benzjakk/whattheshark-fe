@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import uploadDefault from '../../img/upload_default.png';
-import { Upload, Button, Spin, message } from 'antd';
+import { Upload, Button, message, Modal } from 'antd';
 import { predict } from '../../service/predict';
 import style from './Home.module.scss';
 import { SHARK_ENUM, SHARK, SHARK_DETAIL } from '../../parameters/constants';
-
+import { Loading } from '../../component/Loading/Loading';
 export const Home = () => {
   const [previewImg, setPreviewImg] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -44,28 +44,30 @@ export const Home = () => {
   return (
     <div className={style.container}>
       <img src={previewImg || uploadDefault} alt="upload_default" />
-      { !loading && 
-        <>
-        <Upload
-        action={handleAction}
-        listType="picture"
-        showUploadList={false}
-        >
-          <Button type="primary">
-            อัปโหลดรูป
-          </Button>
-        </Upload>
-        {result && 
-          <div className={style.resultContainer}>
-              <div className={style.title}>{SHARK[SHARK_ENUM[result]]}</div>
-              <div className={style.subTitle}>{SHARK_DETAIL[SHARK_ENUM[result]]}</div>
-          </div>
-        }
-        <a href='/detail'><div className={style.sharkDetail}>ทำความรู้จักฉลามทั้ง 3 พันธุ์</div></a>
-        </>
-      }   
-      { loading && <Spin />}
-      
+      <Upload
+      action={handleAction}
+      listType="picture"
+      showUploadList={false}
+      >
+        <Button type="primary">
+          อัปโหลดรูป
+        </Button>
+      </Upload>
+      {result && 
+        <div className={style.resultContainer}>
+            <div className={style.title}>{SHARK[SHARK_ENUM[result]]}</div>
+            <div className={style.subTitle}>{SHARK_DETAIL[SHARK_ENUM[result]]}</div>
+        </div>
+      }
+      <a href='/detail'><div className={style.sharkDetail}>ทำความรู้จักฉลามทั้ง 3 พันธุ์</div></a>
+      <Modal 
+      visible={loading}
+      footer={null}
+      closable={false}
+      className={style.modal}
+      >
+        <Loading /> 
+      </Modal>
     </div>
   )
 }

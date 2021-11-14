@@ -11,6 +11,15 @@
     .ant-btn {
       background-color: $blueBT;
       border-radius: 32px;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.modal {
+  :global {
+    .ant-modal-content{
+      border-radius: 16px;
     }
   }
 }
@@ -33,6 +42,7 @@ img {
   padding: 16px;
   font-size: 26px;
   margin: 24px;
+  margin-top: 0px;
   border-radius: 16px;
 }
 
@@ -56,10 +66,10 @@ img {
   align-items: center;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
 }
 
 .sharkDetail {
-  margin-top: 28px;
   color: $blueBT;
   font-size: 14px;
 }
