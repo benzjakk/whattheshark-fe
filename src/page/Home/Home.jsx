@@ -3,6 +3,7 @@ import uploadDefault from '../../img/upload_default.png';
 import { Upload, Button, Spin, message } from 'antd';
 import { predict } from '../../service/predict';
 import style from './Home.module.scss';
+import { SHARK_ENUM, SHARK, SHARK_DETAIL } from '../../parameters/constants';
 
 export const Home = () => {
   const [previewImg, setPreviewImg] = useState(null);
@@ -56,9 +57,11 @@ export const Home = () => {
         </Upload>
         {result && 
           <div className={style.resultContainer}>
-            {result}
+              <div className={style.title}>{SHARK[SHARK_ENUM[result]]}</div>
+              <div className={style.subTitle}>{SHARK_DETAIL[SHARK_ENUM[result]]}</div>
           </div>
         }
+        <a href='/detail'><div className={style.sharkDetail}>ทำความรู้จักฉลามทั้ง 3 พันธุ์</div></a>
         </>
       }   
       { loading && <Spin />}

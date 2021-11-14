@@ -1,7 +1,7 @@
 export const SHARK_ENUM = {
-    WHITE: 'white',
-    BULL: 'bull',
-    TIGER: 'tiger'
+    white: 'WHITE',
+    bull: 'BULL',
+    tiger: 'TIGER'
 };
 
 export const SHARK = {
