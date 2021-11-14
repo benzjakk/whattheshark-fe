@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import uploadDefault from '../../img/upload_default.png';
-import { Upload, Button } from 'antd';
+import { Upload, Button, Spin } from 'antd';
 import { predict } from '../../service/predict';
 import style from './Home.module.scss';
 
 export const Home = () => {
-  const [previewImg, setPreviewImg] = useState(null)
-  
-  
+  const [previewImg, setPreviewImg] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
   // function getBase64(file) {
   //   return new Promise((resolve, reject) => {
   //     const reader = new FileReader();
@@ -24,25 +24,43 @@ export const Home = () => {
     const previewImgUrl = URL.createObjectURL(file);
     setPreviewImg(previewImgUrl);
     try {
+      setLoading(true);
       const res = await predict(data);
-      console.log(res);
+      if(res.success){
+        setResult(res.result)
+      }  
     } catch (error) {
+      setResult(null);
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   }
+
 
   return (
     <div className={style.container}>
       <img src={previewImg || uploadDefault} alt="upload_default" />
-      <Upload
+      { !loading && 
+        <>
+        <Upload
         action={handleAction}
         listType="picture"
         showUploadList={false}
-      >
-        <Button type="primary">
-          อัปโหลดรูป
-        </Button>
-      </Upload>
+        >
+          <Button type="primary">
+            อัปโหลดรูป
+          </Button>
+        </Upload>
+        {result && 
+          <div className={style.resultContainer}>
+            {result}
+          </div>
+        }
+        </>
+      }   
+      { loading && <Spin />}
+      
     </div>
   )
 }
