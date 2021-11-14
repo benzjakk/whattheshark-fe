@@ -6,6 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  :global {
+    .ant-btn {
+      background-color: $blueBT;
+      border-radius: 32px;
+    }
+  }
 }
 
 img {
@@ -15,5 +22,6 @@ img {
   @media only screen and (min-width: 768px) {
     width: 343px;
   }
+  
 }
 
