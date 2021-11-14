@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import uploadDefault from '../../img/upload_default.png';
-import { Upload, Button, Spin } from 'antd';
+import { Upload, Button, Spin, message } from 'antd';
 import { predict } from '../../service/predict';
 import style from './Home.module.scss';
 
@@ -33,6 +33,7 @@ export const Home = () => {
       setResult(null);
       setPreviewImg(null);
       console.error(error);
+      message.error('เกิดข้อผิดพลาด, กรุณาลองใหม่อีกครั้ง !!!');
     } finally {
       setLoading(false);
     }
