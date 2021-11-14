@@ -31,6 +31,7 @@ export const Home = () => {
       }  
     } catch (error) {
       setResult(null);
+      setPreviewImg(null);
       console.error(error);
     } finally {
       setLoading(false);
