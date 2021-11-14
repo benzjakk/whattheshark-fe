@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import uploadDefault from '../../img/upload_default.png';
-import { Upload, Button } from 'antd';
-import { predict } from '../../service/predict';
+import React from 'react';
 import style from './Shark.module.scss';
 import { SHARK, SHARK_DETAIL } from '../../parameters/constants';
 import white from '../../img/WhiteShark.png';

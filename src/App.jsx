@@ -1,16 +1,35 @@
 import './App.css';
-import { Home } from './page';
-import { Header } from './component';
+import { Home, Shark } from './page';
+import { Header, SharkDetailHeader } from './component';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import style from'./App.module.scss';
 
 function App() {
   return (
-    <div className={style.App}>
-      <div className={style.wrapper}>
-        <Header />
-        <Home />
+    <BrowserRouter>
+      <div className={style.App}>
+        <div className={style.wrapper}>
+          <Routes>
+            <Route exact path="/" element={
+              <>
+              <Header />
+              <Home />
+              </>
+            }/>
+            <Route path="/detail" element={
+              <>
+              <SharkDetailHeader />
+              <Shark />
+              </>
+            }/>
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

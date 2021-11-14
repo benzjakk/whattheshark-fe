@@ -5,7 +5,7 @@ import back from '../../img/Back.png'
 export const SharkDetailHeader = () => {
   return (
     <div className={style.root}>
-        <img className={style.left} src={back} alt="back"/>
+        <a href='/'><img className={style.left} src={back} alt="back"/></a>
         <div className={style.title}>WHAT THE SHARK?</div>
     </div>
   )
