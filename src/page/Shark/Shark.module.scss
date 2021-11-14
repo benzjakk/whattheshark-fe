@@ -1,0 +1,55 @@
+@import "../../stylesheet/variable";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+
+    :global {
+        .ant-btn {
+          background-color: $blueBT;
+          border-radius: 32px;
+        }
+      }
+}
+
+.container {
+    border: 2px solid rgba(255, 255, 255, .25);
+    border-radius: 16px;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.body {
+    margin-top: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sharkImage {
+    width: 150px;
+    height: 150px;
+}
